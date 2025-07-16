@@ -1,0 +1,58 @@
+[
+  {
+    "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1298388548884218266/original/315a9807-e959-4733-b5a8-45d5bd2c4244.png?im_w=1200",
+    "title": "Căn hộ tại Tây Hồ",
+    "location": "Hà Nội",
+    "price": "1.635.291 cho 2 đêm",
+    "rating": 5.0,
+    "liked": false
+  },
+  {
+    "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1151188385654654932/original/a6c13e7e-0ef0-4c57-9870-d74e3ecc7d73.jpeg?im_w=1200",
+    "title": "Phòng tại Hoàn Kiếm",
+
+    "price": "639.059 cho 2 đêm",
+    "rating": 4.82,
+    "liked": false
+  },
+  {
+    "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1180239774814924564/original/5b1c443e-cbd3-4614-b927-ec95d64380e6.jpeg?im_w=1200",
+    "title": "Căn hộ tại Tây Hồ",
+
+    "price": "1.635.291₫ cho 2 đêm",
+    "rating": 5.0,
+    "liked": false
+  },
+  {
+    "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1279550838751483669/original/7c06f097-c8e1-451e-91df-b8d536616557.png?im_w=1200",
+    "title": "Phòng tại Hoàn Kiếm",
+
+    "price": "639.000₫ cho 2 đêm",
+    "rating": 4.82,
+    "liked": false
+  },
+  {
+    "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1421467779265994002/original/aacfb38d-60f3-4840-a523-dbe9b7762630.jpeg?im_w=1200",
+    "title": "Homestay ấm cúng",
+
+    "price": "990.000₫ cho 2 đêm",
+    "rating": 4.7,
+    "liked": false
+  },
+  {
+    "image": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM5MjAzNzk4MTYwNzY4MDQ1MA==/original/b0dd4829-1a0c-48d3-8aa6-4f3f5d5ca1ef.jpeg?im_w=1200",
+    "title": "Villa sát biển",
+
+    "price": "3.200.000₫ cho 2 đêm",
+    "rating": 4.9,
+    "liked": false
+  },
+  {
+    "image": "https://a0.muscache.com/im/pictures/hosting/Hosting-1234613544014651055/original/d0a1172c-3de4-444f-9f17-2db980b58998.jpeg?im_w=1200",
+    "title": "Căn hộ quận 1",
+
+    "price": "2.150.000₫ cho 2 đêm",
+    "rating": 4.6,
+    "liked": false
+  }
+]
