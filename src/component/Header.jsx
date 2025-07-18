@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import HomeIcon from "../assets/icons/house.png";
 import ServiceIcon from "../assets/icons/dinner.png";
 import ExperienceIcon from "../assets/icons/balloon.png";
@@ -9,30 +9,41 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isHostOpen, setIsHostOpen] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
   return (
     <>
       <header className="bg-gray-100 px-6 pt-4   flex justify-between h-[150px] ">
         {/* logo */}
-        <div className=" gap-2 ml-6">
+        <Link to="/accommodation" className=" gap-2 ml-6">
           <img
             src="https://logos-world.net/wp-content/uploads/2020/10/Airbnb-Logo-2014.png"
             alt="logo"
-            className="w-24 h-12 mx-auto"
+            className="w-28 h-16 mx-auto"
           />
-        </div>
+        </Link>
         {/* navigation */}
         <div className=" gap-6   ">
           <div className="flex items-center space-x-10">
             <Link
               to="/accommodation"
-              className="text-gray-700 hover:text-black flex items-center justify-center "
+              className={`text-gray-700 hover:text-black flex flex-row items-center justify-center ${
+                currentPath === "/accommodation"
+                  ? "border-b-4 border-black text-black "
+                  : ""
+              }`}
             >
               <img src={HomeIcon} alt="Nơi ở" className="h-10 w-10" />
               <span className="m-3">Nơi ở</span>
             </Link>
+
             <Link
               to="/experience"
-              className="text-gray-700 hover:text-black flex items-center justify-center"
+              className={`text-gray-700 hover:text-black flex flex-row items-center justify-center ${
+                currentPath === "/experience"
+                  ? "border-b-4 border-black text-black  "
+                  : ""
+              }`}
             >
               <img
                 src={ExperienceIcon}
@@ -44,7 +55,11 @@ const Header = () => {
 
             <Link
               to="/service"
-              className="text-gray-700 hover:text-black flex items-center justify-center"
+              className={`text-gray-700 hover:text-black flex flex-row items-center justify-center ${
+                currentPath === "/service"
+                  ? "border-b-4 border-black text-black "
+                  : ""
+              }`}
             >
               <img src={ServiceIcon} alt="Dịch vụ" className="h-10 w-10" />
               <span className="m-3">Dịch vụ</span>

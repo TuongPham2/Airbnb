@@ -1,5 +1,7 @@
 [
   {
+    "id": 1,
+    "type": "accommodation",
     "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1298388548884218266/original/315a9807-e959-4733-b5a8-45d5bd2c4244.png?im_w=1200",
     "title": "Căn hộ tại Tây Hồ",
     "location": "Hà Nội",
@@ -8,6 +10,8 @@
     "liked": false
   },
   {
+    "id": 2,
+    "type": "accommodation",
     "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1151188385654654932/original/a6c13e7e-0ef0-4c57-9870-d74e3ecc7d73.jpeg?im_w=1200",
     "title": "Phòng tại Hoàn Kiếm",
 
@@ -16,6 +20,8 @@
     "liked": false
   },
   {
+    "id": 3,
+    "type": "accommodation",
     "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1180239774814924564/original/5b1c443e-cbd3-4614-b927-ec95d64380e6.jpeg?im_w=1200",
     "title": "Căn hộ tại Tây Hồ",
 
@@ -24,6 +30,8 @@
     "liked": false
   },
   {
+    "id": 4,
+    "type": "accommodation",
     "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1279550838751483669/original/7c06f097-c8e1-451e-91df-b8d536616557.png?im_w=1200",
     "title": "Phòng tại Hoàn Kiếm",
 
@@ -32,6 +40,8 @@
     "liked": false
   },
   {
+    "id": 5,
+    "type": "accommodation",
     "image": "https://a0.muscache.com/im/pictures/miso/Hosting-1421467779265994002/original/aacfb38d-60f3-4840-a523-dbe9b7762630.jpeg?im_w=1200",
     "title": "Homestay ấm cúng",
 
@@ -40,6 +50,8 @@
     "liked": false
   },
   {
+    "id": 6,
+    "type": "accommodation",
     "image": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM5MjAzNzk4MTYwNzY4MDQ1MA==/original/b0dd4829-1a0c-48d3-8aa6-4f3f5d5ca1ef.jpeg?im_w=1200",
     "title": "Villa sát biển",
 
@@ -48,11 +60,139 @@
     "liked": false
   },
   {
+    "id": 7,
+    "type": "accommodation",
     "image": "https://a0.muscache.com/im/pictures/hosting/Hosting-1234613544014651055/original/d0a1172c-3de4-444f-9f17-2db980b58998.jpeg?im_w=1200",
     "title": "Căn hộ quận 1",
 
     "price": "2.150.000₫ cho 2 đêm",
     "rating": 4.6,
     "liked": false
+  },
+  {
+    "id": 8,
+    "type": "experience",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6276120/original/4a6f0812-07e0-4807-8171-13c21407fd6e.jpeg?im_w=480",
+    "title": "Tìm hiểu các nghi thức chăm sóc da vượt thời gian với Giselle Go",
+    "location": "Quận Minato, Nhật Bản",
+    "price": "Từ ₫5.024.434/khách",
+    "rating": 4.9
+  },
+  {
+    "id": 9,
+    "type": "experience",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6259920/original/ed0abd96-d2e6-4bd1-b549-08dae16eb858.jpeg?im_w=480",
+    "title": "Tạo ikebana theo mùa với Watarai Toru",
+    "location": "Kamakura, Nhật Bản",
+    "price": "Từ ₫2.529.781/khách",
+    "rating": 4.9
+  },
+  {
+    "id": 10,
+    "type": "experience",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6143368/original/7303c055-b2db-4145-a99e-c27b80535106.jpeg?im_w=480",
+    "title": "Thiết kế chiếc áo lấy cảm hứng từ Tour de France của riêng bạn",
+    "location": "Paris, Pháp",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.3
+  },
+  {
+    "id": 11,
+    "type": "experience",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6276120/original/4a6f0812-07e0-4807-8171-13c21407fd6e.jpeg?im_w=480",
+    "title": "Tìm hiểu các nghi thức chăm sóc da vượt thời gian với Giselle Go",
+    "location": "Quận Minato, Nhật Bản",
+    "price": "Từ ₫5.024.434/khách",
+    "rating": 4.0
+  },
+  {
+    "id": 12,
+    "type": "experience",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6259920/original/ed0abd96-d2e6-4bd1-b549-08dae16eb858.jpeg?im_w=480",
+    "title": "Tạo ikebana theo mùa với Watarai Toru",
+    "location": "Kamakura, Nhật Bản",
+    "price": "Từ ₫2.529.781/khách",
+    "rating": 4.5
+  },
+  {
+    "id": 13,
+    "type": "experience",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6143368/original/7303c055-b2db-4145-a99e-c27b80535106.jpeg?im_w=480",
+    "title": "Thiết kế chiếc áo lấy cảm hứng từ Tour de France của riêng bạn",
+    "location": "Paris, Pháp",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.7
+  },
+  {
+    "id": 14,
+    "type": "experience",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6143368/original/7303c055-b2db-4145-a99e-c27b80535106.jpeg?im_w=480",
+    "title": "Thiết kế chiếc áo lấy cảm hứng từ Tour de France của riêng bạn",
+    "location": "Paris, Pháp",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.9
+  },
+  {
+    "id": 15,
+    "type": "service",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6079700/original/36c49f3e-820b-4e02-8e3e-d5aa7f0ad76a.jpeg?im_w=960",
+    "title": "Chụp ảnh trên không và dưới đất của Daniel",
+    "location": "Hoa Kỳ",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.6
+  },
+  {
+    "id": 16,
+    "type": "service",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-4431689/original/4848a93b-274a-446e-9376-0143c3e6ca9f.jpeg?im_w=960",
+    "title": "Tour chụp ảnh xe cổ đầy phong cách",
+    "location": "Rome, Italy",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.5
+  },
+  {
+    "id": 17,
+    "type": "service",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6083709/original/301247e1-7efd-466f-8fdb-2bb75ac9778d.jpeg",
+    "title": "Buổi chụp ảnh Riviera đầy nắng",
+    "location": "Pháp",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.9
+  },
+  {
+    "id": 18,
+    "type": "service",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6079700/original/36c49f3e-820b-4e02-8e3e-d5aa7f0ad76a.jpeg?im_w=960",
+    "title": "Chụp ảnh trên không và dưới đất của Daniel",
+    "location": "Hoa Kỳ",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.6
+  },
+  {
+    "id": 19,
+    "type": "service",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-4431689/original/4848a93b-274a-446e-9376-0143c3e6ca9f.jpeg?im_w=960",
+    "title": "Tour chụp ảnh xe cổ đầy phong cách",
+    "location": "Rome, Italy",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.5
+  },
+  {
+    "id": 20,
+    "type": "service",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6083709/original/301247e1-7efd-466f-8fdb-2bb75ac9778d.jpeg",
+    "title": "Buổi chụp ảnh Riviera đầy nắng",
+    "location": "Pháp",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.9
+  },
+  {
+    "id": 21,
+    "type": "service",
+    "image": "https://a0.muscache.com/im/pictures/Mt/MtTemplate-6083709/original/301247e1-7efd-466f-8fdb-2bb75ac9778d.jpeg",
+    "title": "Buổi chụp ảnh Riviera đầy nắng",
+    "location": "Pháp",
+    "price": "Từ ₫3.336.462 /khách",
+    "rating": 4.9
   }
 ]

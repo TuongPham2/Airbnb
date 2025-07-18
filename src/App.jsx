@@ -4,6 +4,7 @@ import Accommodation from "./pages/Accommodation";
 import Experience from "./pages/Experience";
 import Service from "./pages/Service";
 import Layout from "./component/layout";
+import CardDetail from "./pages/CardDetail";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="accommodation" element={<Accommodation />} />
         <Route path="experience" element={<Experience />} />
         <Route path="service" element={<Service />} />
+        <Route path=":type/:id" element={<CardDetail />} />
       </Route>
 
       {/* Redirect nếu sai path */}

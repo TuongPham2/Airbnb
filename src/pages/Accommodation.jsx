@@ -1,69 +1,31 @@
 import React from "react";
 import Card from "../component/ListingCard";
 import CardData from "../data/CardData.json";
+
 const Accommodation = () => {
+  const filtered = CardData.filter((item) => item.type === "accommodation");
+
+  const sections = [
+    "Nơi lưu trú được ưa chuộng tại Hà Nội",
+    "Khám phá căn hộ hiện đại",
+    "Căn hộ giá tốt hôm nay",
+    "Trải nghiệm nghỉ dưỡng yên tĩnh",
+    "Top lựa chọn trong tuần",
+    "Gợi ý dành riêng cho bạn",
+  ];
+
   return (
-    <div className="bg-gray-50 min-h-screen space-y-4">
-      <div className="px-6">
-        <h2 className="text-xl font-semibold mx-4 my-4">
-          Nơi lưu trú được ưa chuộng tại Hà Nội
-        </h2>
-        <div className="flex gap-4  pb-4 mx-4">
-          {CardData.map((item, idx) => (
-            <Card key={idx} {...item} />
-          ))}
+    <div className="bg-gray-50 min-h-screen  space-y-6 mx-10">
+      {sections.map((title, index) => (
+        <div className="px-6" key={index}>
+          <h2 className="text-xl font-semibold mx-4 my-4">{title}</h2>
+          <div className="flex gap-4 pb-4 mx-4 ">
+            {filtered.map((item, idx) => (
+              <Card key={idx} {...item} />
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="px-6">
-        <h2 className="text-xl font-semibold mx-4 my-4">
-          Nơi lưu trú được ưa chuộng tại Hà Nội
-        </h2>
-        <div className="flex gap-4  pb-4 mx-4">
-          {CardData.map((item, idx) => (
-            <Card key={idx} {...item} />
-          ))}
-        </div>
-      </div>
-      <div className="px-6">
-        <h2 className="text-xl font-semibold mx-4 my-4 ">
-          Nơi lưu trú được ưa chuộng tại Hà Nội
-        </h2>
-        <div className="flex gap-4  pb-4 mx-4 ">
-          {CardData.map((item, idx) => (
-            <Card key={idx} {...item} />
-          ))}
-        </div>
-      </div>
-      <div className="px-6">
-        <h2 className="text-xl font-semibold mx-4 my-4">
-          Nơi lưu trú được ưa chuộng tại Hà Nội
-        </h2>
-        <div className="flex gap-4  pb-4 mx-4 ">
-          {CardData.map((item, idx) => (
-            <Card key={idx} {...item} />
-          ))}
-        </div>
-      </div>
-      <div className="px-6">
-        <h2 className="text-xl font-semibold mx-4 my-4">
-          Nơi lưu trú được ưa chuộng tại Hà Nội
-        </h2>
-        <div className="flex gap-4  pb-4 mx-4 ">
-          {CardData.map((item, idx) => (
-            <Card key={idx} {...item} />
-          ))}
-        </div>
-      </div>
-      <div className="px-6">
-        <h2 className="text-xl font-semibold mx-4 my-4">
-          Nơi lưu trú được ưa chuộng tại Hà Nội
-        </h2>
-        <div className="flex gap-4  pb-4 mx-4 ">
-          {CardData.map((item, idx) => (
-            <Card key={idx} {...item} />
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
