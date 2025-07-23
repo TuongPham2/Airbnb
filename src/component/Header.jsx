@@ -91,8 +91,11 @@ const Header = () => {
                     Trung tâm trợ giúp
                   </Link>
                   <div className="bg-gray-300 h-[1px]  flex items-center justify-center mx-4" />
+                  {/* Trở thành host */}
                   <button
-                    onClick={() => setIsHostOpen(!isHostOpen)}
+                    onClick={() => {
+                      setIsHostOpen(!isHostOpen), setIsMenuOpen(false);
+                    }}
                     className="px-4 py-3 hover:bg-gray-100 block"
                   >
                     <div className="flex justify-between items-center">
@@ -112,6 +115,7 @@ const Header = () => {
                       />
                     </div>
                   </button>
+
                   <div className="bg-gray-300 h-[1px]  flex items-center justify-center mx-4" />
                   <Link
                     to=""
@@ -142,6 +146,55 @@ const Header = () => {
           </div>
         </div>
       </header>
+      {isHostOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className=" max-w-screen-lg bg-white  rounded-lg  relative shadow-lg">
+            <button
+              className="absolute top-2 right-2 text-gray-500"
+              onClick={() => setIsHostOpen(false)}
+            >
+              ✕
+            </button>
+            <div className="p-6">
+              <p className="font-bold text-xl mb-4 text-black flex items-center justify-center">
+                Bạn muốn cung cấp gì?
+              </p>
+              <div className="flex flex-row space-x-4 mt-10">
+                <button className=" w-[250px] h-[280px] border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center  ">
+                  <img
+                    src={HomeIcon}
+                    alt="Nơi ở"
+                    className="h-[100px] w-[100px]  "
+                  />
+                  <span className="m-3">Nơi ở</span>
+                </button>
+                <button className=" w-[250px] h-[280px] border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center">
+                  <img
+                    src={ExperienceIcon}
+                    alt="Trải nghiệm"
+                    className="h-[100px] w-[100px] "
+                  />
+                  <p className="m-3">Trải nghiệm</p>
+                </button>
+                <button className=" w-[250px] h-[280px] border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center">
+                  <img
+                    src={ServiceIcon}
+                    alt="dịch vụ"
+                    className="h-[100px] w-[100px] "
+                  />
+                  <p className="m-3">Dịch vụ</p>
+                </button>
+              </div>
+            </div>
+            <div className=" h-px bg-gray-300 " />
+            <div className="flex items-center justify-end">
+              <button className="px-3 py-2 border border-black rounded-lg m-4">
+                Tiep theo
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

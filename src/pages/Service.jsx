@@ -15,7 +15,7 @@ const Service = () => {
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen  space-y-6 mx-10">
+    <div className="bg-gray-50 min-h-screen  space-y-6 mx-auto max-w-7xl">
       {sections.map((title, index) => (
         <div className="px-6" key={index}>
           <h2 className="text-xl font-semibold mx-4 my-4">{title}</h2>

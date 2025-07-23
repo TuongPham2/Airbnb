@@ -22,7 +22,7 @@ const LoginForm = ({ isOpen, onClose }) => {
             type="button"
             onClick={onClose}
             aria-label="Đóng cửa sổ đăng nhập"
-            className="absolute top-2 left-2 text-gray-500 hover:text-black"
+            className="absolute top-2 right-2 text-gray-500 hover:text-black"
           >
             ✕
           </button>
