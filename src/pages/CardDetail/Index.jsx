@@ -4,7 +4,8 @@ import CardData from "../../data/CardData.json";
 import Amenities from "./Amenities";
 import Review from "./Reviews";
 import Location from "./Location";
-import RoomInfo from "./RoomInfo";
+import RoomInfo from "./Gallery";
+import BookingBox from "./BookingBox";
 
 const Index = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const Index = () => {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen mx-auto max-w-7xl p-6">
+    <div className="bg-gray-50 min-h-screen mx-auto max-w-screen-2xl px-8 lg:px-16">
       <div className="flex flex-col md:flex-row gap-6">
         {/* Nội dung chính */}
         <div className="flex-1 space-y-6">

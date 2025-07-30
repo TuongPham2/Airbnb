@@ -139,8 +139,8 @@ const RoomInfo = ({ item }) => {
           </div>
         </div>
 
-        {/* RIGHT - Booking box 1/3 */}
-        <div className="lg:w-1/3 w-full">
+        {/* RIGHT - Booking box 1/3 sticky */}
+        <div className="lg:w-1/3 w-full h-fit sticky top-28 self-start">
           <BookingBox item={item} />
         </div>
       </div>

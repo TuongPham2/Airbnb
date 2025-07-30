@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
 
 const Card = ({
   id,
@@ -23,33 +23,31 @@ const Card = ({
       to={`/${type}/${id}`}
       className="flex flex-col no-underline text-inherit"
     >
-      <div className="flex flex-col w-[160px] ">
-        {/* Hình ảnh */}
-        <div className="rounded-2xl overflow-hidden shadow hover:shadow-lg border border-gray-200 relative">
+      <div className="flex flex-col w-[180px]">
+        <div className="rounded-2xl overflow-hidden shadow hover:shadow-lg relative">
           <img
             src={image}
             alt={title}
-            className="w-full h-[150px] object-cover"
+            className="w-full h-[160px] object-cover"
           />
 
-          {/* Tim chỉ hiển thị nếu là accommodation */}
           {type === "accommodation" && (
             <button
               onClick={toggleLike}
-              className="absolute top-2 right-2 bg-white rounded-full p-1 shadow"
+              className="absolute top-2 right-2"
               aria-label="Like"
             >
-              <Heart
-                className={`w-5 h-5 transition-colors duration-200 ${
-                  liked ? "fill-red-500 text-red-500" : "text-gray-400"
+              <FaHeart
+                className={`w-6 h-6 transition-colors duration-200 ${
+                  liked
+                    ? "fill-red-500 text-red-500"
+                    : "fill-white text-white drop-shadow-md"
                 }`}
               />
             </button>
           )}
         </div>
-
-        {/* Thông tin */}
-        <div className=" space-y-1">
+        <div className="space-y-1">
           <h3 className="text-sm font-medium break-words line-clamp-2">
             {title}
           </h3>

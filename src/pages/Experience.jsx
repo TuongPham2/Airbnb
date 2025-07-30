@@ -6,21 +6,21 @@ const Experience = () => {
   const filtered = CardData.filter((item) => item.type === "experience");
 
   const sections = [
-    "Nơi lưu trú được ưa chuộng tại Hà Nội",
-    "Khám phá căn hộ hiện đại",
-    "Căn hộ giá tốt hôm nay",
-    "Trải nghiệm nghỉ dưỡng yên tĩnh",
-    "Top lựa chọn trong tuần",
-    "Gợi ý dành riêng cho bạn",
+    "Trải nghiệm nổi bật",
+    "Trải nghiệm gần bạn",
+    "Trải nghiệm trực tuyến",
+    "Dành cho gia đình",
+    "Dành cho cặp đôi",
+    "Hoạt động ngoài trời",
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen  space-y-6 mx-auto max-w-7xl">
+    <div className="bg-gray-50 min-h-screen space-y-6 max-w-[1280px] mx-auto px-6">
       {sections.map((title, index) => (
-        <div className="px-6" key={index}>
+        <div key={index}>
           <h2 className="text-xl font-semibold mx-4 my-4">{title}</h2>
-          <div className="flex gap-4 pb-4 mx-4 ">
-            {filtered.map((item, idx) => (
+          <div className="flex gap-4 justify-center pb-4 ">
+            {filtered.slice(0, 7).map((item, idx) => (
               <Card key={idx} {...item} />
             ))}
           </div>
