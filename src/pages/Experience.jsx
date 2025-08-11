@@ -12,20 +12,27 @@ const Experience = () => {
     "Dành cho gia đình",
     "Dành cho cặp đôi",
     "Hoạt động ngoài trời",
-  ];
+  ].map((title) => ({
+    title,
+  }));
 
   return (
-    <div className="bg-gray-50 min-h-screen space-y-6 max-w-[1280px] mx-auto px-6">
-      {sections.map((title, index) => (
-        <div key={index}>
-          <h2 className="text-xl font-semibold mx-4 my-4">{title}</h2>
-          <div className="flex gap-4 justify-center pb-4 ">
-            {filtered.slice(0, 7).map((item, idx) => (
-              <Card key={idx} {...item} />
-            ))}
+    <div className="bg-gray-50 min-h-screen space-y-6 max-w-[1280px] mx-auto">
+      <div className="flex flex-col items-center justify-center">
+        {sections.map((section, index) => (
+          <div key={index}>
+            <div className="text-xl font-semibold my-4 hover:underline cursor-pointer">
+              {section.title}
+            </div>
+
+            <div className="flex gap-4 pb-4">
+              {filtered.slice(0, 7).map((item, idx) => (
+                <Card key={idx} {...item} />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

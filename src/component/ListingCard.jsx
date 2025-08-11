@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 
-const Card = ({
+const ListingCard = ({
   id,
   image,
   title,
@@ -10,27 +10,31 @@ const Card = ({
   rating,
   type,
   liked: initialLiked,
+  size = "small", // small | large
 }) => {
   const [liked, setLiked] = useState(initialLiked || false);
 
   const toggleLike = (e) => {
-    e.preventDefault(); // Ngăn chặn Link khi bấm vào icon tim
+    e.preventDefault();
     setLiked(!liked);
   };
+
+  const cardWidth = size === "large" ? "w-[260px]" : "w-[180px]";
+  const imageHeight = size === "large" ? "h-[220px]" : "h-[160px]";
+  const titleText = size === "large" ? "text-base" : "text-sm";
 
   return (
     <Link
       to={`/${type}/${id}`}
       className="flex flex-col no-underline text-inherit"
     >
-      <div className="flex flex-col w-[180px]">
+      <div className={`flex flex-col ${cardWidth}`}>
         <div className="rounded-2xl overflow-hidden shadow hover:shadow-lg relative">
           <img
             src={image}
             alt={title}
-            className="w-full h-[160px] object-cover"
+            className={`w-full ${imageHeight} object-cover`}
           />
-
           {type === "accommodation" && (
             <button
               onClick={toggleLike}
@@ -48,7 +52,7 @@ const Card = ({
           )}
         </div>
         <div className="space-y-1">
-          <h3 className="text-sm font-medium break-words line-clamp-2">
+          <h3 className={`${titleText} font-medium break-words line-clamp-2`}>
             {title}
           </h3>
           <div className="flex items-center gap-2">
@@ -61,4 +65,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default ListingCard;

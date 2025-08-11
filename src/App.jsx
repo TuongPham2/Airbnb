@@ -1,10 +1,11 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Accommodation from "./pages/Accommodation";
+import Accommodation from "./pages/Accommodation/Accommodation";
 import Experience from "./pages/Experience";
 import Service from "./pages/Service";
-import Layout from "./component/layout";
-import Index from "./pages/CardDetail/Index";
+import Layout from "./layout/MainLayout";
+import Index from "./pages/CardDetail/CardDetailPage";
+import CatagoryListings from "./pages/CatagoryListings";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="experience" element={<Experience />} />
         <Route path="service" element={<Service />} />
         <Route path=":type/:id" element={<Index />} />
+        <Route path=":catagory" element={<CatagoryListings />} />
       </Route>
 
       {/* Redirect nếu sai path */}

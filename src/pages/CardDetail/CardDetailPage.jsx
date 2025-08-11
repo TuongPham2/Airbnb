@@ -5,11 +5,24 @@ import Amenities from "./Amenities";
 import Review from "./Reviews";
 import Location from "./Location";
 import RoomInfo from "./Gallery";
-import BookingBox from "./BookingBox";
+import { useState, useEffect } from "react";
 
-const Index = () => {
+const CardDetailPage = () => {
   const { id } = useParams();
   const item = CardData.find((room) => room.id === parseInt(id));
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (!item) {
     return (
@@ -30,8 +43,19 @@ const Index = () => {
           <Location />
         </div>
       </div>
+      <>
+        {!isScrolled && (
+          <header className="big-header">{/* Nội dung header lớn */}</header>
+        )}
+
+        {isScrolled && (
+          <nav className="compact-nav fixed top-0 left-0 w-full shadow bg-white z-50">
+            {/* Tabs thu gọn: Ảnh, Tiện nghi, Đánh giá, Vị trí */}
+          </nav>
+        )}
+      </>
     </div>
   );
 };
 
-export default Index;
+export default CardDetailPage;

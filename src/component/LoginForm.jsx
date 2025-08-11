@@ -15,14 +15,14 @@ const LoginForm = ({ isOpen, onClose }) => {
     </button>
   );
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 ">
+    <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-[90] ">
       <div className="bg-white rounded-3xl shadow-lg w-[500px] p-6 relative ">
         <div className="flex  items-center mb-4 justify-center">
           <button
             type="button"
             onClick={onClose}
             aria-label="Đóng cửa sổ đăng nhập"
-            className="absolute top-2 right-2 text-gray-500 hover:text-black"
+            className="absolute top-2 left-4 text-gray-500 hover:text-black"
           >
             ✕
           </button>
