@@ -50,7 +50,8 @@ const BookingBox = () => {
     <div className="bg-white shadow-md rounded-xl p-6 border">
       <h2 className="text-lg font-semibold mb-4">Thêm ngày để xem giá</h2>
 
-      <div className="grid grid-cols-2 border rounded-lg overflow-hidden">
+      {/* grid: cho overflow-visible và relative để calendar absolute không bị cắt */}
+      <div className="grid grid-cols-2 border rounded-lg overflow-visible relative">
         <div
           className="border-r p-2 cursor-pointer"
           onClick={() => setShowCalendar(!showCalendar)}
@@ -73,21 +74,21 @@ const BookingBox = () => {
             {formatDate(selectionRange.endDate)}
           </p>
         </div>
+
+        {showCalendar && (
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 ">
+            <Calendar
+              selectionRange={selectionRange}
+              handleSelect={handleSelect}
+              resetDates={resetDates}
+            />
+          </div>
+        )}
       </div>
 
-      {showCalendar && (
-        <div className="flex justify-center mt-4">
-          <Calendar
-            selectionRange={selectionRange}
-            handleSelect={handleSelect}
-            resetDates={resetDates}
-          />
-        </div>
-      )}
-
-      <div className="flex-1 flex items-center z-10 relative cursor-pointer hover:bg-gray-200 rounded-full transition-colors duration-200">
+      <div className="flex-1 flex items-center z-10 relative cursor-pointer hover:bg-gray-200 rounded-full transition-colors duration-200 mt-4">
         <div
-          className="flex flex-col px-4 py-3 w-full  "
+          className="flex flex-col px-4 py-3 w-full"
           onClick={() => handleFieldClick("guests")}
         >
           <label className="text-xs text-gray-500 font-semibold">Khách</label>

@@ -5,19 +5,22 @@ import vi from "date-fns/locale/vi";
 import HomeIcon from "../assets/icons/house.png";
 import ServiceIcon from "../assets/icons/dinner.png";
 import ExperienceIcon from "../assets/icons/balloon.png";
-import LoginForm from "../component/LoginForm";
+import LoginForm from "../Login/LoginForm";
 import Calendar from "../component/Calendar";
-import { FaSearch, FaBars } from "react-icons/fa";
+import { FaSearch, FaBars, FaUser } from "react-icons/fa";
 import GuestDropdown from "../component/GuestDropdown";
 import LocationDropdown from "../component/LocationDropdown";
 import Menu from "../component/Menu";
+import { useContext } from "react";
+
+import { AuthContext } from "../Login/AuthContext";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
   const [locationInput, setLocationInput] = useState("");
   const [activeField, setActiveField] = useState(null);
-
+  const { currentUser, logout } = useContext(AuthContext);
   const [selectionRange, setSelectionRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -106,13 +109,12 @@ const Header = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[9999] flex flex-col bg-gray-100 transition-all duration-300">
-      {/* Header chính */}
       <div
-        className={`px-6 py-6 flex justify-between items-center  transition-all duration-300 m-4 ${
+        className={`px-6 py-6 flex items-center  transition-all duration-300 m-4 ${
           isScrolled ? "h-[60px] py-2" : "h-[80px] pt-4"
         }`}
       >
-        <Link to="/accommodation" className="ml-6">
+        <Link to="/accommodation" className="ml-6 flex-shrink-0">
           <img
             src="https://logos-world.net/wp-content/uploads/2020/10/Airbnb-Logo-2014.png"
             alt="logo"
@@ -122,7 +124,7 @@ const Header = () => {
 
         {/* Menu điều hướng hoặc thanh tìm kiếm rút gọn khi cuộn */}
         {!isScrolled ? (
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {[
               { path: "/accommodation", icon: HomeIcon, label: "Nơi ở" },
               {
@@ -148,7 +150,10 @@ const Header = () => {
           </div>
         ) : (
           // Thanh tìm kiếm rút gọn khi cuộn xuống
-          <div className="flex justify-center items-center bg-white shadow-md py-3 px-7 rounded-full border border-gray-200 ">
+          <div
+            className="flex justify-center items-center bg-white shadow-md py-3 px-7 rounded-full border border-gray-200 absolute left-1/2 transform -translate-x-1/2
+"
+          >
             <div className="flex flex-row space-x-2">
               <img src={HomeIcon} alt="Nơi ở" className="h-8 w-8" />
               <button
@@ -183,19 +188,38 @@ const Header = () => {
           </div>
         )}
 
-        <div className="flex items-center space-x-4">
-          <div>
+        <div className="flex-shrink-0 ml-auto flex items-center space-x-4">
+          {currentUser ? (
+            <div className="flex gap-3 items-center">
+              <span className="flex items-center gap-1">
+                <FaUser />
+                <span className="font-medium">
+                  {currentUser.fullName || currentUser.name || "Người dùng"}
+                </span>
+              </span>
+
+              <button
+                onClick={logout}
+                className="bg-red-500 text-white px-3 py-1 rounded"
+              >
+                Đăng xuất
+              </button>
+            </div>
+          ) : (
             <button
               onClick={() => setIsLoginOpen(true)}
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left font-semibold"
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 font-semibold"
             >
               Đăng nhập
             </button>
-            <LoginForm
-              isOpen={isLoginOpen}
-              onClose={() => setIsLoginOpen(false)}
-            />
-          </div>
+          )}
+
+          <LoginForm
+            isOpen={isLoginOpen}
+            onClose={() => setIsLoginOpen(false)}
+          />
+
+          {/* Menu */}
           <div className="relative">
             <div
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -213,141 +237,139 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Thanh tìm kiếm đầy đủ (chỉ hiển thị khi showFullSearch là true) */}
-      {showFullSearch &&
-        !isScrolled && ( // Đảm bảo chỉ hiển thị khi không cuộn
-          <div className="flex justify-center items-center bg-gray-100 pb-6 relative divide-x divide-black">
-            <div className="w-full max-w-4xl bg-white rounded-full border border-gray-200 shadow-lg flex overflow-visible relative ">
-              <div
-                className={`absolute inset-y-0 bg-white border border-pink-700 rounded-full shadow-md transition-all duration-400 ease-in-out ${
-                  activeField === "location"
-                    ? "transform translate-x-0 w-1/4"
-                    : activeField === "checkin"
-                    ? "transform translate-x-full w-1/4"
-                    : activeField === "checkout"
-                    ? "transform translate-x-[200%] w-1/4"
-                    : activeField === "guests"
-                    ? "transform translate-x-[300%] w-1/4"
-                    : "opacity-0"
-                }`}
-              />
-              {/* Ô Địa điểm */}
-              <div
-                className={`flex-1 z-10 relative rounded-full transition-colors duration-200 cursor-pointer  ${
-                  activeField !== "location" ? "hover:bg-gray-200" : ""
-                }`}
-                onClick={() => handleFieldClick("location")}
-              >
-                <div className="flex flex-col px-4 py-3">
-                  <label className="text-xs text-gray-500 font-semibold">
-                    Địa điểm
-                  </label>
-                  <input
-                    type="text"
+      {showFullSearch && !isScrolled && (
+        <div className="flex justify-center items-center bg-gray-100 pb-6 relative divide-x divide-black">
+          <div className="w-full max-w-4xl bg-white rounded-full border border-gray-200 shadow-lg flex overflow-visible relative ">
+            <div
+              className={`absolute inset-y-0 bg-white border border-pink-700 rounded-full shadow-md transition-all duration-400 ease-in-out ${
+                activeField === "location"
+                  ? "transform translate-x-0 w-1/4"
+                  : activeField === "checkin"
+                  ? "transform translate-x-full w-1/4"
+                  : activeField === "checkout"
+                  ? "transform translate-x-[200%] w-1/4"
+                  : activeField === "guests"
+                  ? "transform translate-x-[300%] w-1/4"
+                  : "opacity-0"
+              }`}
+            />
+            {/* Ô Địa điểm */}
+            <div
+              className={`flex-1 z-10 relative rounded-full transition-colors duration-200 cursor-pointer  ${
+                activeField !== "location" ? "hover:bg-gray-200" : ""
+              }`}
+              onClick={() => handleFieldClick("location")}
+            >
+              <div className="flex flex-col px-4 py-3">
+                <label className="text-sm text-black font-semibold">
+                  Địa điểm
+                </label>
+                <input
+                  type="text"
+                  value={locationInput}
+                  onChange={(e) => setLocationInput(e.target.value)}
+                  className="text-sm outline-none bg-transparent w-full"
+                  placeholder="Bạn muốn đi đâu?"
+                />
+              </div>
+              {activeField === "location" && (
+                <div className="absolute left-0 top-full z-50 mt-2 w-full">
+                  <LocationDropdown
                     value={locationInput}
-                    onChange={(e) => setLocationInput(e.target.value)}
-                    className="text-sm outline-none bg-transparent w-full"
-                    placeholder="Bạn muốn đi đâu?"
+                    onChange={(val) => {
+                      setLocationInput(val);
+                      setActiveField(null);
+                    }}
                   />
                 </div>
-                {activeField === "location" && (
-                  <div className="absolute left-0 top-full z-50 mt-2 w-full">
-                    <LocationDropdown
-                      value={locationInput}
-                      onChange={(val) => {
-                        setLocationInput(val);
-                        setActiveField(null);
-                      }}
-                    />
-                  </div>
-                )}
-              </div>
-
-              {/* Nhận phòng */}
-              <div
-                className={`flex-1 z-10 rounded-full transition-colors duration-200 cursor-pointer  ${
-                  activeField !== "checkin" ? "hover:bg-gray-200" : ""
-                }`}
-                onClick={() => handleFieldClick("checkin")}
-              >
-                <div className="flex flex-col px-4 py-3">
-                  <label className="text-xs text-gray-500 font-semibold">
-                    Nhận phòng
-                  </label>
-                  <p className="text-sm text-gray-800">
-                    {formatDate(selectionRange.startDate)}
-                  </p>
-                </div>
-              </div>
-
-              {/* Trả phòng */}
-              <div
-                className={`flex-1 z-10 rounded-full transition-colors duration-200 cursor-pointer ${
-                  activeField !== "checkout" ? "hover:bg-gray-200" : ""
-                }`}
-                onClick={() => handleFieldClick("checkout")}
-              >
-                <div className="flex flex-col px-4 py-3">
-                  <label className="text-xs text-gray-500 font-semibold">
-                    Trả phòng
-                  </label>
-                  <p className="text-sm text-gray-800">
-                    {formatDate(selectionRange.endDate)}
-                  </p>
-                </div>
-              </div>
-
-              {/* Số khách + nút tìm kiếm */}
-              <div
-                className={`flex-1 flex items-center z-10 relative rounded-full transition-colors duration-200 cursor-pointer ${
-                  activeField !== "guests" ? "hover:bg-gray-200" : ""
-                }`}
-              >
-                <div
-                  className="flex flex-col px-4 py-3 w-full"
-                  onClick={() => handleFieldClick("guests")}
-                >
-                  <label className="text-xs text-gray-500 font-semibold">
-                    Khách
-                  </label>
-                  <input
-                    readOnly
-                    value={`${guests.adults + guests.children} khách${
-                      guests.infants > 0 ? `, ${guests.infants} em bé` : ""
-                    }`}
-                    className="text-sm outline-none bg-transparent w-full cursor-pointer"
-                  />
-                </div>
-                <button
-                  onClick={handleSearch}
-                  className="bg-pink-600 text-white rounded-full p-2.5 m-2 hover:bg-pink-700 transition-colors duration-200  "
-                >
-                  <FaSearch />
-                </button>
-                {activeField === "guests" && (
-                  <div className="absolute top-full right-0 z-50 mt-2 w-full">
-                    <GuestDropdown
-                      guests={guests}
-                      setGuests={setGuests}
-                      onClose={() => setActiveField(null)}
-                    />
-                  </div>
-                )}
-              </div>
-
-              {showCalendar &&
-                (activeField === "checkin" || activeField === "checkout") && (
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 z-50 mt-2">
-                    <Calendar
-                      selectionRange={selectionRange}
-                      handleSelect={handleSelect}
-                      resetDates={resetDates}
-                    />
-                  </div>
-                )}
+              )}
             </div>
+
+            {/* Nhận phòng */}
+            <div
+              className={`flex-1 z-10 rounded-full transition-colors duration-200 cursor-pointer  ${
+                activeField !== "checkin" ? "hover:bg-gray-200" : ""
+              }`}
+              onClick={() => handleFieldClick("checkin")}
+            >
+              <div className="flex flex-col px-4 py-3">
+                <label className="text-xs text-gray-500 font-semibold">
+                  Nhận phòng
+                </label>
+                <p className="text-sm text-gray-800">
+                  {formatDate(selectionRange.startDate)}
+                </p>
+              </div>
+            </div>
+
+            {/* Trả phòng */}
+            <div
+              className={`flex-1 z-10 rounded-full transition-colors duration-200 cursor-pointer ${
+                activeField !== "checkout" ? "hover:bg-gray-200" : ""
+              }`}
+              onClick={() => handleFieldClick("checkout")}
+            >
+              <div className="flex flex-col px-4 py-3">
+                <label className="text-xs text-gray-500 font-semibold">
+                  Trả phòng
+                </label>
+                <p className="text-sm text-gray-800">
+                  {formatDate(selectionRange.endDate)}
+                </p>
+              </div>
+            </div>
+
+            {/* Số khách + nút tìm kiếm */}
+            <div
+              className={`flex-1 flex items-center z-10 relative rounded-full transition-colors duration-200 cursor-pointer ${
+                activeField !== "guests" ? "hover:bg-gray-200" : ""
+              }`}
+            >
+              <div
+                className="flex flex-col px-4 py-3 w-full"
+                onClick={() => handleFieldClick("guests")}
+              >
+                <label className="text-xs text-gray-500 font-semibold">
+                  Khách
+                </label>
+                <input
+                  readOnly
+                  value={`${guests.adults + guests.children} khách${
+                    guests.infants > 0 ? `, ${guests.infants} em bé` : ""
+                  }`}
+                  className="text-sm outline-none bg-transparent w-full cursor-pointer"
+                />
+              </div>
+              <button
+                onClick={handleSearch}
+                className="bg-pink-600 text-white rounded-full p-2.5 m-2 hover:bg-pink-700 transition-colors duration-200  "
+              >
+                <FaSearch />
+              </button>
+              {activeField === "guests" && (
+                <div className="absolute top-full right-0 z-50 mt-2 w-full">
+                  <GuestDropdown
+                    guests={guests}
+                    setGuests={setGuests}
+                    onClose={() => setActiveField(null)}
+                  />
+                </div>
+              )}
+            </div>
+
+            {showCalendar &&
+              (activeField === "checkin" || activeField === "checkout") && (
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 z-50 mt-2">
+                  <Calendar
+                    selectionRange={selectionRange}
+                    handleSelect={handleSelect}
+                    resetDates={resetDates}
+                  />
+                </div>
+              )}
           </div>
-        )}
+        </div>
+      )}
     </div>
   );
 };
