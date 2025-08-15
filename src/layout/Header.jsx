@@ -10,7 +10,7 @@ import Calendar from "../component/Calendar";
 import { FaSearch, FaBars, FaUser } from "react-icons/fa";
 import GuestDropdown from "../component/GuestDropdown";
 import LocationDropdown from "../component/LocationDropdown";
-import Menu from "../component/Menu";
+import Menu from "../pages/Menu";
 import { useContext } from "react";
 
 import { AuthContext } from "../Login/AuthContext";
@@ -86,20 +86,20 @@ const Header = () => {
   const [showFullSearch, setShowFullSearch] = useState(true);
   const handleExpandSearch = () => {
     setShowFullSearch(true);
-    setIsScrolled(false); // Trả về trạng thái đầy đủ
-    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll lên đầu nếu cần
+    setIsScrolled(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
-    const SCROLL_THRESHOLD = 200; // 👈 Đặt ngưỡng thu gọn
+    const SCROLL_THRESHOLD = 200;
 
     const handleScroll = () => {
       if (window.scrollY > SCROLL_THRESHOLD) {
         setIsScrolled(true);
-        setShowFullSearch(false); // Ẩn thanh tìm kiếm đầy đủ
+        setShowFullSearch(false);
       } else {
         setIsScrolled(false);
-        setShowFullSearch(true); // Hiện lại header đầy đủ
+        setShowFullSearch(true);
       }
     };
 
@@ -122,7 +122,6 @@ const Header = () => {
           />
         </Link>
 
-        {/* Menu điều hướng hoặc thanh tìm kiếm rút gọn khi cuộn */}
         {!isScrolled ? (
           <div className="flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {[
@@ -149,7 +148,6 @@ const Header = () => {
             ))}
           </div>
         ) : (
-          // Thanh tìm kiếm rút gọn khi cuộn xuống
           <div
             className="flex justify-center items-center bg-white shadow-md py-3 px-7 rounded-full border border-gray-200 absolute left-1/2 transform -translate-x-1/2
 "
@@ -253,7 +251,6 @@ const Header = () => {
                   : "opacity-0"
               }`}
             />
-            {/* Ô Địa điểm */}
             <div
               className={`flex-1 z-10 relative rounded-full transition-colors duration-200 cursor-pointer  ${
                 activeField !== "location" ? "hover:bg-gray-200" : ""
@@ -285,7 +282,6 @@ const Header = () => {
               )}
             </div>
 
-            {/* Nhận phòng */}
             <div
               className={`flex-1 z-10 rounded-full transition-colors duration-200 cursor-pointer  ${
                 activeField !== "checkin" ? "hover:bg-gray-200" : ""
@@ -293,7 +289,7 @@ const Header = () => {
               onClick={() => handleFieldClick("checkin")}
             >
               <div className="flex flex-col px-4 py-3">
-                <label className="text-xs text-gray-500 font-semibold">
+                <label className="text-sm text-black font-semibold">
                   Nhận phòng
                 </label>
                 <p className="text-sm text-gray-800">
@@ -301,8 +297,6 @@ const Header = () => {
                 </p>
               </div>
             </div>
-
-            {/* Trả phòng */}
             <div
               className={`flex-1 z-10 rounded-full transition-colors duration-200 cursor-pointer ${
                 activeField !== "checkout" ? "hover:bg-gray-200" : ""
@@ -310,7 +304,7 @@ const Header = () => {
               onClick={() => handleFieldClick("checkout")}
             >
               <div className="flex flex-col px-4 py-3">
-                <label className="text-xs text-gray-500 font-semibold">
+                <label className="text-sm text-black font-semibold">
                   Trả phòng
                 </label>
                 <p className="text-sm text-gray-800">
@@ -319,7 +313,6 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Số khách + nút tìm kiếm */}
             <div
               className={`flex-1 flex items-center z-10 relative rounded-full transition-colors duration-200 cursor-pointer ${
                 activeField !== "guests" ? "hover:bg-gray-200" : ""
@@ -329,7 +322,7 @@ const Header = () => {
                 className="flex flex-col px-4 py-3 w-full"
                 onClick={() => handleFieldClick("guests")}
               >
-                <label className="text-xs text-gray-500 font-semibold">
+                <label className="text-sm text-black font-semibold">
                   Khách
                 </label>
                 <input

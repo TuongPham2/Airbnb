@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Calendar from "../../component/Calendar";
-import { useState } from "react";
+import { FaCheckCircle } from "react-icons/fa"; // Icon cho tiện nghi
+
 const Amenities = () => {
   const [selectionRange, setSelectionRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
     key: "selection",
   });
+
   const handleSelect = (ranges) => {
     setSelectionRange(ranges.selection);
   };
@@ -19,22 +21,39 @@ const Amenities = () => {
     });
   };
 
+  const amenitiesList = [
+    "Khóa ở cửa phòng ngủ",
+    "Thang máy",
+    "Cho phép gửi hành lý",
+    "Tủ lạnh",
+    "Wifi",
+    "Sân hoặc ban công",
+    "Máy sấy tóc",
+    "Chỗ ở có camera an ninh ngoài nhà",
+  ];
+
   return (
-    <div className="mx-[100px] mt-5 min-h-screen">
-      <div className="max-w-screen-md space-y-4">
-        <p className="text-xl font-bold">Nơi này có những gì cho bạn</p>
-        <div className="grid grid-cols-2  grid-rows-4 gap-4">
-          <div>Khóa ở cửa phòng ngủ</div>
-          <div>Thang máy</div>
-          <div>Cho phép gửi hành lý</div>
-          <div>Tủ lạnh</div>
-          <div>Wifi</div>
-          <div>Sân hoặc ban công</div>
-          <div>Máy sấy tóc</div>
-          <div>Chỗ ở có camera an ninh ngoài nhà</div>
+    <div className="mt-10 border-b border-gray-300 pt-8">
+      <div className="max-w-6xl mx-auto px-4">
+        <p className="text-2xl font-bold mb-6">Nơi này có những gì cho bạn</p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          {amenitiesList.map((item, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-3 text-gray-800 text-lg"
+            >
+              <FaCheckCircle className="text-green-600" />
+              <span>{item}</span>
+            </div>
+          ))}
         </div>
-        <button>Hiển thị tất cả tiện nghi</button>
-        <div className="h-px bg-gray-300 w-full" />
+
+        <button className="mt-4 px-4 py-2 border border-gray-400 rounded-lg text-sm font-medium hover:bg-gray-100 transition">
+          Hiển thị tất cả tiện nghi
+        </button>
+        <div className="h-px bg-gray-300 w-full my-8" />
+
         <div className="flex justify-center items-center py-6">
           <Calendar
             selectionRange={selectionRange}
@@ -43,7 +62,6 @@ const Amenities = () => {
           />
         </div>
       </div>
-      <div className="h-px bg-gray-300 w-full" />
     </div>
   );
 };

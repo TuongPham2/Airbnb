@@ -1,17 +1,17 @@
 import React from "react";
-import Card from "../component/ListingCard";
-import CardData from "../data/CardData.json";
+import Card from "../../component/ListingCard";
+import CardData from "../../data/CardData.json";
 
-const Experience = () => {
-  const filtered = CardData.filter((item) => item.type === "experience");
+const Service = () => {
+  const filtered = CardData.filter((item) => item.type === "service");
 
   const sections = [
-    "Trải nghiệm nổi bật",
-    "Trải nghiệm gần bạn",
-    "Trải nghiệm trực tuyến",
-    "Dành cho gia đình",
-    "Dành cho cặp đôi",
-    "Hoạt động ngoài trời",
+    "Dịch vụ phổ biến",
+    "Dọn dẹp nhà cửa",
+    "Giặt ủi và chăm sóc đồ dùng",
+    "Sửa chữa và bảo trì",
+    "Nấu ăn tại nhà",
+    "Gợi ý từ chúng tôi",
   ].map((title) => ({
     title,
   }));
@@ -37,4 +37,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Service;

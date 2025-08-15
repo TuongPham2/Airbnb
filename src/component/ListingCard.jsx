@@ -10,7 +10,7 @@ const ListingCard = ({
   rating,
   type,
   liked: initialLiked,
-  size = "small", // small | large
+  size = "small",
 }) => {
   const [liked, setLiked] = useState(initialLiked || false);
 

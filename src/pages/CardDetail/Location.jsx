@@ -10,10 +10,10 @@ const customIcon = new L.Icon({
 });
 
 const Location = () => {
-  const position = [11.9404, 108.4583]; // Tọa độ Đà Lạt
+  const position = [11.9404, 108.4583];
 
   return (
-    <div className="mx-[100px] mt-5 min-h-screen border-b border-gray-300 ">
+    <div className=" mt-5 min-h-screen border-b border-gray-300 ">
       <h2 className="text-2xl font-semibold mb-2">Nơi bạn sẽ đến</h2>
       <p className="text-gray-700 mb-4">Dalat, Lâm Đồng, Việt Nam</p>
 

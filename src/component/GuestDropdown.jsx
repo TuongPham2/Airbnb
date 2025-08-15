@@ -1,4 +1,3 @@
-// components/GuestDropdown.jsx
 import React from "react";
 
 const GuestRow = ({ label, sub, count, onDecrease, onIncrease }) => {

@@ -27,7 +27,7 @@ const LoginForm = ({ isOpen, onClose }) => {
     return existingAccounts.includes(phoneNumber);
   };
   const handlePhoneLogin = () => {
-    setError(""); // Đặt ngay đầu
+    setError("");
 
     const cleanedPhone = phone.replace(/\D/g, "");
     if (

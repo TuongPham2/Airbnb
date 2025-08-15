@@ -1,26 +1,23 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Accommodation from "./pages/Accommodation/Accommodation";
-import Experience from "./pages/Experience";
-import Service from "./pages/Service";
+import Experience from "./pages/Experience/Experience";
+import Service from "./pages/Service/Service";
 import Layout from "./layout/MainLayout";
 import Index from "./pages/CardDetail/CardDetailPage";
-import CatagoryListings from "./pages/CatagoryListings";
+import CategoryListings from "./pages/CategoryListings";
 
 function App() {
   return (
     <Routes>
-      {/* Route chính bao gồm Header + Footer */}
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/accommodation" />} />
         <Route path="accommodation" element={<Accommodation />} />
         <Route path="experience" element={<Experience />} />
         <Route path="service" element={<Service />} />
         <Route path=":type/:id" element={<Index />} />
-        <Route path=":catagory" element={<CatagoryListings />} />
+        <Route path=":category" element={<CategoryListings />} />
       </Route>
-
-      {/* Redirect nếu sai path */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

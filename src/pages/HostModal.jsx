@@ -1,4 +1,3 @@
-// component/HostModal.jsx
 import React from "react";
 import HomeIcon from "../assets/icons/house.png";
 import ExperienceIcon from "../assets/icons/balloon.png";

@@ -2,10 +2,9 @@ import React from "react";
 import { DoorOpen, Bed, Calendar } from "lucide-react";
 import BookingBox from "./BookingBox";
 
-const RoomInfo = ({ item }) => {
+const Gallery = ({ item }) => {
   return (
     <div className="mx-[100px] mt-5 min-h-screen">
-      {/* Tiêu đề + Chia sẻ */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold mb-4">{item.title}</h1>
         <div>
@@ -14,7 +13,6 @@ const RoomInfo = ({ item }) => {
         </div>
       </div>
 
-      {/* Grid ảnh */}
       <div className="grid grid-cols-4 grid-rows-2 gap-3 h-[400px] rounded-lg overflow-hidden">
         <div className="col-span-2 row-span-2">
           <img
@@ -45,11 +43,8 @@ const RoomInfo = ({ item }) => {
         />
       </div>
 
-      {/* Phần nội dung chia 2 cột */}
       <div className="mt-10 flex flex-col-reverse lg:flex-row gap-8">
-        {/* LEFT - Nội dung 2/3 */}
         <div className="lg:w-2/3 space-y-6">
-          {/* Tiêu đề + mô tả */}
           <div>
             <h1 className="font-bold text-xl">
               Toàn bộ căn hộ cho thuê tại Cleveland, Ohio, Hoa Kỳ
@@ -57,7 +52,6 @@ const RoomInfo = ({ item }) => {
             <p>4 khách - 1 phòng ngủ - 2 giường - 1 phòng tắm</p>
           </div>
 
-          {/* Được yêu thích */}
           <div className="border border-gray-300 rounded-lg p-4 flex justify-between items-center">
             <div>
               <p className="font-semibold">Được khách yêu thích</p>
@@ -72,7 +66,6 @@ const RoomInfo = ({ item }) => {
             </div>
           </div>
 
-          {/* Host */}
           <div className="flex items-center space-x-4 border-b border-gray-300 pb-4">
             <img
               src="https://static.vecteezy.com/system/resources/previews/000/423/286/original/avatar-icon-vector-illustration.jpg"
@@ -87,7 +80,6 @@ const RoomInfo = ({ item }) => {
             </div>
           </div>
 
-          {/* Tiện ích */}
           <div className="space-y-4 border-b border-gray-300 pb-4">
             <div className="flex items-center space-x-4">
               <DoorOpen className="h-7 w-7" />
@@ -119,7 +111,6 @@ const RoomInfo = ({ item }) => {
             </div>
           </div>
 
-          {/* Giới thiệu */}
           <div className="border-b border-gray-300 pb-4">
             <p className="text-xl font-bold">Giới thiệu về chỗ ở này</p>
             <p className="text-sm mt-2">
@@ -128,7 +119,6 @@ const RoomInfo = ({ item }) => {
             </p>
           </div>
 
-          {/* Phòng ngủ */}
           <div className="border-b border-gray-300 pb-4">
             <p className="text-xl font-bold">Nơi bạn sẽ ngủ nghỉ</p>
             <img
@@ -139,7 +129,6 @@ const RoomInfo = ({ item }) => {
           </div>
         </div>
 
-        {/* RIGHT - Booking box 1/3 sticky */}
         <div className="lg:w-1/3 w-full h-fit sticky top-28 self-start">
           <BookingBox item={item} />
         </div>
@@ -148,4 +137,4 @@ const RoomInfo = ({ item }) => {
   );
 };
 
-export default RoomInfo;
+export default Gallery;

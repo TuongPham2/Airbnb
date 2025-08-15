@@ -1,44 +1,6 @@
 import React from "react";
 
 const Reviews = () => {
-  const ratings = [
-    {
-      title: "Xếp hạng tổng thể",
-      score: 4.9,
-      icon: "https://cdn-icons-png.flaticon.com/512/478/478544.png",
-    },
-    {
-      title: "Mức độ sạch sẽ",
-      score: 4.9,
-      icon: "https://cdn-icons-png.flaticon.com/512/995/995053.png",
-    },
-    {
-      title: "Độ chính xác",
-      score: 5.0,
-      icon: "https://cdn-icons-png.flaticon.com/512/1442/1442912.png",
-    },
-    {
-      title: "Nhận phòng",
-      score: 5.0,
-      icon: "https://cdn-icons-png.flaticon.com/512/263/263069.png",
-    },
-    {
-      title: "Giao tiếp",
-      score: 5.0,
-      icon: "https://cdn-icons-png.flaticon.com/512/589/589708.png",
-    },
-    {
-      title: "Vị trí",
-      score: 5.0,
-      icon: "https://cdn-icons-png.flaticon.com/512/592/592245.png",
-    },
-    {
-      title: "Giá trị",
-      score: 5.0,
-      icon: "https://cdn-icons-png.flaticon.com/512/1442/1442912.png",
-    },
-  ];
-
   const reviews = [
     {
       name: "Vy",
@@ -91,76 +53,37 @@ const Reviews = () => {
   ];
 
   return (
-    <div className="mx-[100px] border-b border-gray-300 p-4">
-      <div className="flex flex-col items-center my-8">
-        <div className="flex items-center gap-4">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/11351/11351682.png"
-            alt="left wreath"
-            className="w-16 h-16 transform -scale-x-100"
-          />
+    <div className="border-b border-gray-300 pb-6">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
+        <p className="font-bold text-xl">Lượt đánh giá</p>
 
-          <h1 className="text-[80px] font-semibold">5,0</h1>
-
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/11351/11351682.png"
-            alt="right wreath"
-            className="w-16 h-16"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-8 w-full">
+          {reviews.map((r, i) => (
+            <div key={i}>
+              <div className="flex items-center gap-3 mb-2">
+                <img
+                  src={r.avatar}
+                  alt="avatar"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <div>
+                  <p className="font-semibold">{r.name}</p>
+                  <p className="text-sm text-gray-500">
+                    {r.years} hoạt động trên Airbnb
+                  </p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-500 mb-1">★★★★★ · {r.time}</p>
+              <p className="text-black text-md break-words">{r.content}</p>
+            </div>
+          ))}
         </div>
 
-        <p className="text-xl font-semibold mt-2">Được khách yêu thích</p>
-        <p className="text-gray-600 text-base text-center max-w-xl mt-1">
-          Nhà này được khách yêu thích dựa trên điểm xếp hạng, lượt đánh giá và
-          độ tin cậy
-        </p>
-      </div>
-
-      <div className="grid grid-cols-7 py-6 divide-x-2 divide-gray-300">
-        {ratings.map((item, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col space-y-4 px-6 items-center text-center"
-          >
-            <div className=" space-x-2">
-              <div className="font-semibold text-sm whitespace-nowrap">
-                {item.title}
-              </div>
-              <div className="font-semibold text-sm text-gray-700">
-                {item.score}
-              </div>
-            </div>
-            <img src={item.icon} alt="icon" className="w-8 h-8" />
-          </div>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-        {reviews.map((r, i) => (
-          <div key={i}>
-            <div className="flex items-center gap-3 mb-2">
-              <img
-                src={r.avatar}
-                alt="avatar"
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p className="font-semibold">{r.name}</p>
-                <p className="text-sm text-gray-500">
-                  {r.years} hoạt động trên Airbnb
-                </p>
-              </div>
-            </div>
-            <p className="text-sm text-gray-500 mb-1">★★★★★ · {r.time}</p>
-            <p className="text-black text-md">{r.content}</p>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <button className="mt-6 border border-gray-300 rounded-lg px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-300 transition-colors">
-          Xem tất cả đánh giá
-        </button>
+        <div>
+          <button className="mt-6 border border-gray-300 rounded-lg px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-300 transition-colors">
+            Xem tất cả đánh giá
+          </button>
+        </div>
       </div>
     </div>
   );

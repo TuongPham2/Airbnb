@@ -50,7 +50,6 @@ const BookingBox = () => {
     <div className="bg-white shadow-md rounded-xl p-6 border">
       <h2 className="text-lg font-semibold mb-4">Thêm ngày để xem giá</h2>
 
-      {/* grid: cho overflow-visible và relative để calendar absolute không bị cắt */}
       <div className="grid grid-cols-2 border rounded-lg overflow-visible relative">
         <div
           className="border-r p-2 cursor-pointer"

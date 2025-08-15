@@ -12,7 +12,7 @@ const Calendar = ({ selectionRange, handleSelect, resetDates }) => {
     !selectionRange.endDate ||
     !selectionRange.key
   ) {
-    return null; // Tránh lỗi nếu thiếu dữ liệu
+    return null;
   }
 
   return (
@@ -20,7 +20,7 @@ const Calendar = ({ selectionRange, handleSelect, resetDates }) => {
       <DateRange
         ranges={[selectionRange]}
         onChange={handleSelect}
-        editableDateInputs={true} // thêm để tránh lỗi autoFocus
+        editableDateInputs={true}
         locale={vi}
         months={2}
         direction="horizontal"

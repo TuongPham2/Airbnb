@@ -4,7 +4,6 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 py-8 px-4 md:px-8 lg:px-16 border-t border-gray-200">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pb-8">
-        {/* Column 1: Support */}
         <div>
           <h3 className="font-bold text-gray-800 mb-4">Hỗ trợ</h3>
           <ul>
@@ -41,7 +40,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 2: Cộng đồng */}
         <div>
           <h3 className="font-bold text-gray-800 mb-4">Cộng đồng</h3>
           <ul>
@@ -73,7 +71,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 3: Đón tiếp khách */}
         <div>
           <h3 className="font-bold text-gray-800 mb-4">Đón tiếp khách</h3>
           <ul>
@@ -105,7 +102,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 4: Giới thiệu */}
         <div>
           <h3 className="font-bold text-gray-800 mb-4">Giới thiệu</h3>
           <ul>
@@ -137,8 +133,6 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-
-      {/* Bottom Section */}
       <div className="max-w-7xl mx-auto border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
         <div className="mb-4 md:mb-0">
           © 2023 Airbnb, Inc. ·{" "}

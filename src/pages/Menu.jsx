@@ -8,10 +8,7 @@ const Menu = ({ onClose }) => {
 
   return (
     <div className=" right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg">
-      <Link
-        to="/help"
-        className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
-      >
+      <Link to="" className="block px-4 py-3 text-gray-700 hover:bg-gray-100">
         Trung tâm trợ giúp
       </Link>
       <div className="h-px bg-gray-200 mx-4" />
@@ -19,7 +16,7 @@ const Menu = ({ onClose }) => {
       <button
         onClick={() => {
           setIsHostOpen(true);
-          onClose(); // đóng menu sau khi mở modal
+          onClose();
         }}
         className="px-4 py-3 hover:bg-gray-100 w-full text-left"
       >
@@ -38,7 +35,6 @@ const Menu = ({ onClose }) => {
         </div>
       </button>
 
-      {/* Modal hiển thị khi click */}
       {isHostOpen && (
         <HostModal isOpen={isHostOpen} onClose={() => setIsHostOpen(false)} />
       )}
