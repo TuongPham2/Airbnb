@@ -14,7 +14,7 @@ const Location = () => {
 
   return (
     <div className=" mt-5 min-h-screen border-b border-gray-300 ">
-      <h2 className="text-2xl font-semibold mb-2">Nơi bạn sẽ đến</h2>
+      <h2 className="text-2xl font-semibold mb-6">Nơi bạn sẽ đến</h2>
       <p className="text-gray-700 mb-4">Dalat, Lâm Đồng, Việt Nam</p>
 
       <div className="h-[500px] rounded-2xl overflow-hidden shadow-md ">

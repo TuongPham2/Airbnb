@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import HomeIcon from "../assets/icons/house.png";
 import HostModal from "./HostModal";
+import { AuthContext } from "../Login/AuthContext";
+import { FaUser, FaSignOutAlt } from "react-icons/fa";
 
-const Menu = ({ onClose }) => {
+const Menu = ({ onClose, setIsLoginOpen }) => {
   const [isHostOpen, setIsHostOpen] = useState(false);
+  const { currentUser, logout } = useContext(AuthContext);
 
   return (
-    <div className=" right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg">
+    <div className="right-0 mt-2 w-60 bg-white border rounded-lg shadow-lg">
+      <div className="h-px bg-gray-200 mx-4" />
       <Link to="" className="block px-4 py-3 text-gray-700 hover:bg-gray-100">
         Trung tâm trợ giúp
       </Link>
@@ -52,6 +56,38 @@ const Menu = ({ onClose }) => {
       >
         Tìm host hỗ trợ
       </Link>
+
+      {!currentUser && (
+        <button
+          onClick={() => {
+            setIsLoginOpen(true);
+            onClose();
+          }}
+          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+        >
+          Đăng nhập hoặc đăng kí
+        </button>
+      )}
+
+      {currentUser && (
+        <div className="px-4 py-3 flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <FaUser />
+            <span className="font-medium">
+              {currentUser.fullName || currentUser.name || "Người dùng"}
+            </span>
+          </div>
+          <button
+            onClick={() => {
+              logout();
+              onClose();
+            }}
+            className="flex items-center gap-2 text-red-500 hover:bg-gray-100 px-2 py-1 rounded"
+          >
+            <FaSignOutAlt /> Đăng xuất
+          </button>
+        </div>
+      )}
     </div>
   );
 };

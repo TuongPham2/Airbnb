@@ -4,16 +4,15 @@ import BookingBox from "./BookingBox";
 
 const Gallery = ({ item }) => {
   return (
-    <div className="mx-[100px] mt-5 min-h-screen">
+    <div className="mt-20 md:mt-5 min-h-screen px-4 md:px-8 lg:px-20">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold mb-4">{item.title}</h1>
-        <div>
-          <span>Chia sẻ</span>
-          <span className="mx-2">Lưu</span>
+        <h1 className="text-2xl font-semibold mb-6">{item.title}</h1>
+        <div className="flex gap-3 text-sm md:text-base">
+          <span className="cursor-pointer hover:underline">Chia sẻ</span>
+          <span className="cursor-pointer hover:underline">Lưu</span>
         </div>
       </div>
-
-      <div className="grid grid-cols-4 grid-rows-2 gap-3 h-[400px] rounded-lg overflow-hidden">
+      <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-2 md:gap-3 h-[250px] md:h-[400px] rounded-lg overflow-hidden">
         <div className="col-span-2 row-span-2">
           <img
             src={item.image}
@@ -34,22 +33,23 @@ const Gallery = ({ item }) => {
         <img
           src={item.image}
           alt=""
-          className="w-full h-full object-cover rounded-lg"
+          className="w-full h-full object-cover rounded-lg hidden md:block"
         />
         <img
           src={item.image}
           alt=""
-          className="w-full h-full object-cover rounded-lg"
+          className="w-full h-full object-cover rounded-lg hidden md:block"
         />
       </div>
-
       <div className="mt-10 flex flex-col-reverse lg:flex-row gap-8">
         <div className="lg:w-2/3 space-y-6">
           <div>
-            <h1 className="font-bold text-xl">
+            <h1 className="font-bold text-lg md:text-xl">
               Toàn bộ căn hộ cho thuê tại Cleveland, Ohio, Hoa Kỳ
             </h1>
-            <p>4 khách - 1 phòng ngủ - 2 giường - 1 phòng tắm</p>
+            <p className="text-sm md:text-base">
+              4 khách - 1 phòng ngủ - 2 giường - 1 phòng tắm
+            </p>
           </div>
 
           <div className="border border-gray-300 rounded-lg p-4 flex justify-between items-center">
@@ -74,7 +74,7 @@ const Gallery = ({ item }) => {
             />
             <div>
               <p className="font-semibold">Host: Deeetra</p>
-              <p className="text-sm">
+              <p className="text-sm text-gray-600">
                 Superhost - 2 tháng kinh nghiệm đón tiếp khách
               </p>
             </div>
@@ -112,7 +112,9 @@ const Gallery = ({ item }) => {
           </div>
 
           <div className="border-b border-gray-300 pb-4">
-            <p className="text-xl font-bold">Giới thiệu về chỗ ở này</p>
+            <p className="text-2xl font-semibold mb-6">
+              Giới thiệu về chỗ ở này
+            </p>
             <p className="text-sm mt-2">
               Sống cùng gia đình bản xứ Tọa lạc ngay trung tâm thành phố Đà
               Lạt... (cắt bớt mô tả)
@@ -120,15 +122,14 @@ const Gallery = ({ item }) => {
           </div>
 
           <div className="border-b border-gray-300 pb-4">
-            <p className="text-xl font-bold">Nơi bạn sẽ ngủ nghỉ</p>
+            <p className="text-2xl font-semibold mb-6">Nơi bạn sẽ ngủ nghỉ</p>
             <img
               src={item.image}
               alt=""
-              className="w-[300px] max-h-[200px] object-cover rounded-lg shadow"
+              className="w-[250px] md:w-[300px] max-h-[200px] object-cover rounded-lg shadow"
             />
           </div>
         </div>
-
         <div className="lg:w-1/3 w-full h-fit sticky top-28 self-start">
           <BookingBox item={item} />
         </div>
