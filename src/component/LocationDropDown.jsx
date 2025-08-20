@@ -1,24 +1,27 @@
-// components/LocationDropdown.jsx
 import React from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const suggestions = [
   {
+    id: "nearby",
     title: "Nearby",
     description: "Find what's around you",
     icon: <FaMapMarkerAlt className="text-blue-500" />,
   },
   {
+    id: "bangkok",
     title: "Bangkok, Thailand",
     description: "For sights like Grand Palace",
     icon: <FaMapMarkerAlt className="text-green-500" />,
   },
   {
+    id: "melbourne",
     title: "Melbourne, Australia",
     description: "For its top-notch dining",
     icon: <FaMapMarkerAlt className="text-pink-500" />,
   },
   {
+    id: "dalat",
     title: "Dalat, Vietnam",
     description: "For nature-lovers",
     icon: <FaMapMarkerAlt className="text-orange-400" />,
@@ -32,9 +35,9 @@ const LocationDropdown = ({ onSelect }) => {
         Suggested destinations
       </h3>
       <ul className="space-y-2">
-        {suggestions.map((item, index) => (
+        {suggestions.map((item) => (
           <li
-            key={index}
+            key={item.id}
             className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
             onClick={() => onSelect(item.title)}
           >

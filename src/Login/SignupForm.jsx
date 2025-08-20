@@ -31,7 +31,7 @@ const SignupForm = ({ isOpen, onClose }) => {
     };
 
     updateUserProfile(profileData);
-    console.log("Đăng ký thành công với dữ liệu:", profileData);
+
     onClose();
   };
 

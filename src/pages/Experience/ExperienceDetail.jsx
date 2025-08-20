@@ -131,8 +131,8 @@ const ExperienceDetail = () => {
             ))}
           </div>
         </section>
-        <div className="md:w-1/3">
-          <div className="sticky top-24  p-6">
+        <div className="md:col-span-2">
+          <div className="sticky top-24">
             <BookingBox />
           </div>
         </div>

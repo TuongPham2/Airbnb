@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     setCurrentUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
   const logout = () => {
@@ -26,9 +27,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   const updateUserProfile = (profileData) => {
-    setCurrentUser((prev) => ({ ...prev, ...profileData }));
-    console.log("Hồ sơ đã cập nhật:", { ...currentUser, ...profileData });
+    setCurrentUser((prev) => {
+      const updated = { ...prev, ...profileData };
+      console.log("Hồ sơ đã cập nhật:", updated);
+      localStorage.setItem("user", JSON.stringify(updated));
+      return updated;
+    });
   };
+
   return (
     <AuthContext.Provider
       value={{ currentUser, login, logout, updateUserProfile }}

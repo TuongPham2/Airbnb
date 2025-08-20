@@ -47,7 +47,7 @@ const BookingBox = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-xl p-6 border">
+    <div className="bg-white shadow-md rounded-xl p-6 border relative">
       <h2 className="text-lg font-semibold mb-4">Thêm ngày để xem giá</h2>
 
       <div className="grid grid-cols-2 border rounded-lg overflow-visible relative">
@@ -75,7 +75,7 @@ const BookingBox = () => {
         </div>
 
         {showCalendar && (
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 ">
+          <div className="absolute top-full left-0 mt-2 z-50 w-full">
             <Calendar
               selectionRange={selectionRange}
               handleSelect={handleSelect}

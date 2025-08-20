@@ -47,7 +47,6 @@ const LoginForm = ({ isOpen, onClose }) => {
     login({ phone: fullPhone, provider: "phone" });
 
     if (userExists) {
-      console.log("Đăng nhập thành công với số:", fullPhone);
       onClose();
     } else {
       setShowSignupForm(true);
