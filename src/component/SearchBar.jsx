@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { format } from "date-fns";
 import vi from "date-fns/locale/vi";
 import { FaSearch } from "react-icons/fa";
-import LocationDropdown from "../component/LocationDropdown";
+import LocationDropdown from "../component/LocationDropDown";
 import Calendar from "../component/Calendar";
 import GuestDropdown from "../component/GuestDropdown";
 
