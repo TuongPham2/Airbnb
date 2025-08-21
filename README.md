@@ -19,8 +19,8 @@ The goal of this project is to practice building responsive layouts, reusable co
 - Deployed with Vercel
 
 ## Demo
-Live Demo: [https://airbnb-opal-eight-77.vercel.app](https://airbnb-opal-eight-77.vercel.app)  
-GitHub Repository: [https://github.com/tuongpham204/Airbnb](https://github.com/tuongpham204/Airbnb)
+- Live Demo: [https://airbnb-opal-eight-77.vercel.app](https://airbnb-opal-eight-77.vercel.app)  
+- GitHub Repository: [https://github.com/tuongpham204/Airbnb](https://github.com/tuongpham204/Airbnb)
 
 ## Installation
 Clone the repository and install dependencies:
