@@ -1,5 +1,4 @@
 import React from "react";
-
 const GuestRow = ({ label, sub, count, onDecrease, onIncrease }) => {
   return (
     <div className="flex justify-between items-center py-3">
