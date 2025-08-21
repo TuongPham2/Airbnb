@@ -4,7 +4,7 @@ import vi from "date-fns/locale/vi";
 import { FaSearch } from "react-icons/fa";
 import LocationDropdown from "../component/LocationDropDown";
 import Calendar from "../component/Calendar";
-import GuestDropdown from "../component/GuestDropdown";
+import GuestBox from "./GuestBox";
 
 const SearchBar = ({
   locationInput,
@@ -159,7 +159,7 @@ const SearchBar = ({
             </button>
             {activeField === "guests" && (
               <div className="absolute top-full right-0 z-50 mt-2 w-full">
-                <GuestDropdown
+                <GuestBox
                   guests={guests}
                   setGuests={setGuests}
                   onClose={() => setActiveField(null)}

@@ -28,7 +28,7 @@ const GuestRow = ({ label, sub, count, onDecrease, onIncrease }) => {
   );
 };
 
-const GuestDropdown = ({ guests, setGuests, onClear }) => {
+const GuestBox = ({ guests, setGuests, onClear }) => {
   const updateGuest = (type, delta) => {
     setGuests((prev) => ({
       ...prev,
@@ -76,4 +76,4 @@ const GuestDropdown = ({ guests, setGuests, onClear }) => {
   );
 };
 
-export default GuestDropdown;
+export default GuestBox;
