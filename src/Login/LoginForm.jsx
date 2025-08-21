@@ -26,9 +26,9 @@ const LoginForm = ({ isOpen, onClose }) => {
   const checkUserExists = (phoneNumber) => {
     return existingAccounts.includes(phoneNumber);
   };
+
   const handlePhoneLogin = () => {
     setError("");
-
     const cleanedPhone = phone.replace(/\D/g, "");
     if (
       !cleanedPhone ||
@@ -65,7 +65,7 @@ const LoginForm = ({ isOpen, onClose }) => {
           showSignupForm ? "hidden" : ""
         }`}
       >
-        <div className="bg-white rounded-3xl shadow-lg w-[500px] p-6 relative">
+        <div className="  bg-white rounded-xl shadow-lg w-[90%] max-w-[320px] sm:max-w-md md:max-w-lg lg:max-w-xl p-3 sm:p-6 relative">
           <div className="flex items-center mb-4 justify-center">
             <button
               type="button"
@@ -75,20 +75,21 @@ const LoginForm = ({ isOpen, onClose }) => {
             >
               ✕
             </button>
-            <h2 className="text-lg font-semibold text-center mb-2">
+            <h2 className="text-base sm:text-lg font-semibold text-center mb-2">
               Đăng nhập hoặc đăng ký
             </h2>
           </div>
           <div className="bg-gray-400 h-[1px]" />
-          <h3 className="text-xl font-bold my-4">
+          <h3 className="text-lg sm:text-xl font-bold my-4 text-center sm:text-left">
             Chào mừng bạn đến với Airbnb
           </h3>
           {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+
           <div>
             <select
               value={countryCode}
               onChange={(e) => setCountryCode(e.target.value)}
-              className="w-full border-2 border-gray-400 p-2 rounded-lg mb-3"
+              className="w-full border-2 border-gray-400 p-2 rounded-lg mb-3 text-sm sm:text-base"
             >
               <option value="+84">Việt Nam (+84)</option>
               <option value="+1">Hoa Kỳ (+1)</option>
@@ -97,17 +98,19 @@ const LoginForm = ({ isOpen, onClose }) => {
             <input
               type="text"
               placeholder="Số điện thoại (ví dụ: 0123456789)"
-              className="w-full border-2 border-gray-400 p-2 rounded-lg mb-3"
+              className="w-full border-2 border-gray-400 p-2 rounded-lg mb-3 text-sm sm:text-base"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-          <p className="text-xs text-gray-500 mb-4">
+
+          <p className="text-xs text-gray-500 mb-4 text-center sm:text-left">
             Chúng tôi sẽ gọi điện hoặc nhắn tin để xác nhận số điện thoại.
           </p>
+
           <button
             onClick={handlePhoneLogin}
-            className="w-full bg-red-700 text-white p-2 rounded-lg"
+            className="w-full bg-red-700 text-white p-2 sm:p-3 rounded-lg text-sm sm:text-base"
           >
             Tiếp tục
           </button>
@@ -116,7 +119,7 @@ const LoginForm = ({ isOpen, onClose }) => {
             Hoặc
             <div className="flex-1 h-px bg-gray-300" />
           </div>
-          <div className="flex flex-col gap-2 text-sm">
+          <div className="flex flex-col gap-2 text-xs sm:text-sm">
             <Button
               onClick={() => handleSocialLogin("facebook")}
               icon={<FaFacebook className="text-blue-600" />}

@@ -8,10 +8,12 @@ import { FaBars } from "react-icons/fa";
 import Menu from "../pages/Menu";
 import CompactSearch from "../component/CompactSearch";
 import SearchBar from "../component/SearchBar";
+import HostModal from "../pages/HostModal";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isHostOpen, setIsHostOpen] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
   const [locationInput, setLocationInput] = useState("");
   const [activeField, setActiveField] = useState(null);
@@ -58,19 +60,16 @@ const Header = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-[9999] flex flex-col bg-gray-100 transition-all duration-300">
       <div
-        className={`flex items-center transition-all duration-300 
-          m-2 sm:m-4 px-3 py-4 sm:px-6 sm:py-6
+        className={`flex items-center transition-all duration-300 m-2 sm:m-4 px-3 py-4 sm:px-6 sm:py-6
           ${isScrolled ? "h-[60px] py-2" : "h-[70px] sm:h-[80px]"}
         `}
       >
-        {/* Logo desktop */}
         <Link to="/accommodation" className="ml-2 sm:ml-6 flex-shrink-0">
           <img
             src="https://logos-world.net/wp-content/uploads/2020/10/Airbnb-Logo-2014.png"
             alt="logo"
             className="hidden md:block w-28 h-16 transition-all duration-300"
           />
-          {/* Logo mobile nhỏ */}
           <img
             src="https://logos-world.net/wp-content/uploads/2020/10/Airbnb-Logo-2014.png"
             alt="logo"
@@ -78,7 +77,6 @@ const Header = () => {
           />
         </Link>
 
-        {/* Navigation desktop */}
         {!isScrolled ? (
           <div className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {[
@@ -112,8 +110,6 @@ const Header = () => {
             guests={guests}
           />
         )}
-
-        {/* Menu button */}
         <div className="flex-shrink-0 ml-auto flex items-center space-x-4">
           <div className="relative">
             <div
@@ -127,6 +123,7 @@ const Header = () => {
                 <Menu
                   onClose={() => setIsMenuOpen(false)}
                   setIsLoginOpen={setIsLoginOpen}
+                  setIsHostOpen={setIsHostOpen}
                 />
               </div>
             )}
@@ -134,7 +131,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Search bar */}
       {showFullSearch && !isScrolled && (
         <div>
           <div className="hidden md:block">
@@ -168,7 +164,6 @@ const Header = () => {
         </div>
       )}
 
-      {/* Bottom navigation (mobile only) */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 w-full bg-white border-t flex justify-around py-2 z-50">
         {[
           { path: "/accommodation", icon: HomeIcon, label: "Nơi ở" },
@@ -187,8 +182,8 @@ const Header = () => {
           </Link>
         ))}
       </div>
+      <HostModal isOpen={isHostOpen} onClose={() => setIsHostOpen(false)} />
 
-      {/* Login Form */}
       <LoginForm isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </div>
   );

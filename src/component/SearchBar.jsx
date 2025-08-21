@@ -4,7 +4,7 @@ import vi from "date-fns/locale/vi";
 import { FaSearch } from "react-icons/fa";
 import LocationDropdown from "../component/LocationDropDown";
 import Calendar from "../component/Calendar";
-import GuestDropdown from "../component/GuestDropdown";
+import GuestDropdown from "./GuestDropDown";
 
 const SearchBar = ({
   locationInput,
@@ -51,7 +51,7 @@ const SearchBar = ({
     });
     setShowCalendar(false);
     setActiveField(null);
-    setShowMobileSearch(false); // đóng overlay mobile khi tìm kiếm
+    setShowMobileSearch(false);
   };
 
   const handleFieldClick = (field) => {
@@ -69,9 +69,7 @@ const SearchBar = ({
   return (
     <div className="flex justify-center items-center bg-gray-100 pb-6 relative">
       <div className="w-full max-w-4xl">
-        {/* ✅ Desktop / Laptop */}
         <div className="hidden md:flex bg-white rounded-full border border-gray-200 shadow-lg overflow-visible relative">
-          {/* highlight moving background */}
           <div
             className={`absolute inset-y-0 bg-white border border-pink-700 rounded-full shadow-md transition-all duration-400 ease-in-out ${
               activeField === "location"
@@ -85,8 +83,6 @@ const SearchBar = ({
                 : "opacity-0"
             }`}
           />
-
-          {/* Địa điểm */}
           <div
             className={`flex-1 z-10 relative rounded-full transition-colors duration-200 cursor-pointer ${
               activeField !== "location" ? "hover:bg-gray-200" : ""
@@ -115,8 +111,6 @@ const SearchBar = ({
               </div>
             )}
           </div>
-
-          {/* Nhận phòng */}
           <div
             className={`flex-1 z-10 rounded-full cursor-pointer ${
               activeField !== "checkin" ? "hover:bg-gray-200" : ""
@@ -128,8 +122,6 @@ const SearchBar = ({
               <p className="text-sm">{formatDate(selectionRange.startDate)}</p>
             </div>
           </div>
-
-          {/* Trả phòng */}
           <div
             className={`flex-1 z-10 rounded-full cursor-pointer ${
               activeField !== "checkout" ? "hover:bg-gray-200" : ""
@@ -141,8 +133,6 @@ const SearchBar = ({
               <p className="text-sm">{formatDate(selectionRange.endDate)}</p>
             </div>
           </div>
-
-          {/* Khách */}
           <div
             className={`flex-1 flex items-center z-10 relative rounded-full cursor-pointer ${
               activeField !== "guests" ? "hover:bg-gray-200" : ""
@@ -178,7 +168,6 @@ const SearchBar = ({
             )}
           </div>
 
-          {/* Calendar */}
           {showCalendar &&
             (activeField === "checkin" || activeField === "checkout") && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 z-50 mt-2">
@@ -190,8 +179,6 @@ const SearchBar = ({
               </div>
             )}
         </div>
-
-        {/* ✅ Mobile */}
         <div className="block md:hidden">
           {!showMobileSearch ? (
             <button
@@ -202,15 +189,12 @@ const SearchBar = ({
             </button>
           ) : (
             <div className="fixed inset-0 bg-white z-[9999] p-4 overflow-y-auto">
-              {/* Nút đóng */}
               <button
                 onClick={() => setShowMobileSearch(false)}
                 className="mb-4 text-gray-600 font-semibold"
               >
                 ✕ Đóng
               </button>
-
-              {/* Địa điểm */}
               <div className="border rounded-lg p-3 mb-4">
                 <label className="text-sm font-semibold">Địa điểm</label>
                 <input
@@ -221,8 +205,6 @@ const SearchBar = ({
                   className="w-full outline-none bg-transparent text-sm mt-1"
                 />
               </div>
-
-              {/* Ngày */}
               <div className="flex gap-2 mb-4">
                 <div
                   className="flex-1 border rounded-lg p-3"
@@ -243,8 +225,6 @@ const SearchBar = ({
                   </p>
                 </div>
               </div>
-
-              {/* Khách */}
               <div
                 className="border rounded-lg p-3 mb-4"
                 onClick={() => handleFieldClick("guests")}
@@ -258,8 +238,6 @@ const SearchBar = ({
                   className="w-full outline-none bg-transparent text-sm mt-1 cursor-pointer"
                 />
               </div>
-
-              {/* Calendar mobile */}
               {showCalendar &&
                 (activeField === "checkin" || activeField === "checkout") && (
                   <div className="mb-4">
@@ -270,8 +248,6 @@ const SearchBar = ({
                     />
                   </div>
                 )}
-
-              {/* Dropdown khách mobile */}
               {activeField === "guests" && (
                 <div className="mb-4">
                   <GuestDropdown
@@ -281,8 +257,6 @@ const SearchBar = ({
                   />
                 </div>
               )}
-
-              {/* Nút tìm kiếm */}
               <button
                 onClick={handleSearch}
                 className="w-full bg-pink-600 text-white rounded-lg py-3 mt-2 font-semibold"

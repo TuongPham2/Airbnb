@@ -1,12 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import HomeIcon from "../assets/icons/house.png";
-import HostModal from "./HostModal";
 import { AuthContext } from "../Login/AuthContext";
 import { FaUser, FaSignOutAlt } from "react-icons/fa";
 
-const Menu = ({ onClose, setIsLoginOpen }) => {
-  const [isHostOpen, setIsHostOpen] = useState(false);
+const Menu = ({ onClose, setIsLoginOpen, setIsHostOpen }) => {
   const { currentUser, logout } = useContext(AuthContext);
 
   return (
@@ -39,21 +37,11 @@ const Menu = ({ onClose, setIsLoginOpen }) => {
         </div>
       </button>
 
-      {isHostOpen && (
-        <HostModal isOpen={isHostOpen} onClose={() => setIsHostOpen(false)} />
-      )}
-
       <div className="h-px bg-gray-200 mx-4" />
-      <Link
-        to="/introduce-host"
-        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-      >
+      <Link className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
         Giới thiệu chủ nhà
       </Link>
-      <Link
-        to="/find-host"
-        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-      >
+      <Link className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
         Tìm host hỗ trợ
       </Link>
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Calendar from "../../component/Calendar"; // Đường dẫn tùy dự án
 import { format } from "date-fns";
 import vi from "date-fns/locale/vi";
-import GuestDropdown from "../../component/GuestDropdown";
+import GuestDropdown from "../../component/GuestDropDown";
 
 const BookingBox = () => {
   const [showCalendar, setShowCalendar] = useState(false);

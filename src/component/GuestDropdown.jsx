@@ -15,7 +15,7 @@ const GuestRow = ({ label, sub, count, onDecrease, onIncrease }) => {
           onClick={onDecrease}
           disabled={count === 0}
         >
-          –
+          -
         </button>
         <span>{count}</span>
         <button
