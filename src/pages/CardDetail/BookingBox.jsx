@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Calendar from "../../component/Calendar"; // Đường dẫn tùy dự án
 import { format } from "date-fns";
 import vi from "date-fns/locale/vi";
-import GuestDropdown from "../../component/GuestDropDown";
+import GuestDropDown from "../../component/GuestDropDown";
 
 const BookingBox = () => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -102,7 +102,7 @@ const BookingBox = () => {
 
         {activeField === "guests" && (
           <div className="absolute top-full right-0 z-50 mt-2 w-full">
-            <GuestDropdown
+            <GuestDropDown
               guests={guests}
               setGuests={setGuests}
               onClose={() => setActiveField(null)}
